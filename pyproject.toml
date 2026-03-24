@@ -11,4 +11,7 @@ dependencies = [
     "langserve>=0.3.3",
     "python-dotenv>=1.2.2",
     "streamlit>=1.55.0",
+    "fastapi",
+    "uvicorn",
+    "sse-starlette>=3.3.3",
 ]

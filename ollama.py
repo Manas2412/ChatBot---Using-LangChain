@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_openai import ChatOpenAI
+from langchain_community.llms import Ollama
 from langserve import add_routes
 import uvicorn
 import os
@@ -8,16 +8,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
 app = FastAPI(
-    title="LangChain Server",
+    title="LangChain Server (Ollama)",
     version="1.0",
     description="A simple API server using LangChain's Runnable interfaces",
 )
 
-# LLM model
-llm = ChatOpenAI(model="gpt-3.5-turbo")
+# Local LLM model (Ensure Ollama is running and llama2 is pulled)
+llm = Ollama(model="llama2")
 
 # Prompt Template
 prompt = ChatPromptTemplate.from_messages([
