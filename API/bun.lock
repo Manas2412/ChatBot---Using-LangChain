@@ -1,0 +1,14 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "streamlit": "^2.51.2",
+      },
+    },
+  },
+  "packages": {
+    "streamlit": ["streamlit@2.51.2", "", {}, "sha512-ZMF3Z7ueouGnw98p+T96hFKrTAIBiY1Iz9D5qPQXBOi8+2RkBCmzInBnjZZa9abQVrlsAbndns+6E3aiYs9EGQ=="],
+  }
+}
