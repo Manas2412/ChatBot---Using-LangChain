@@ -13,7 +13,11 @@ chain = RemoteRunnable("http://localhost:8000/chatbot")
 def get_response(input_text):
     try:
         response = chain.invoke({"question": input_text})
-        return response.content
+        # Handle cases where response is a string (like from Ollama) 
+        # or a Message object (like from OpenAI Chat)
+        if hasattr(response, 'content'):
+            return response.content
+        return str(response)
     except Exception as e:
         return f"Error: {str(e)}"
 

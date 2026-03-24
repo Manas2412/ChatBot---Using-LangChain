@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 from langchain_community.llms import Ollama
 from langserve import add_routes
 import uvicorn
@@ -26,7 +27,7 @@ prompt = ChatPromptTemplate.from_messages([
 # Add routes to the FastAPI app
 add_routes(
     app,
-    prompt | llm,
+    prompt | llm | StrOutputParser(),
     path="/chatbot",
 )
 
